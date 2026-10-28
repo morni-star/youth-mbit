@@ -1,6 +1,6 @@
 {
     "name": "youth-mbit",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "YOUTH mBit \u2014 full block pack for the Yahboom m:bit Smart Robot Car, plug-in modules and music (YOUTH Computer Tachileik)",
     "license": "MIT",
     "dependencies": {

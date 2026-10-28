@@ -32,7 +32,23 @@ enum YouthSong {
     //% block="William Tell (Rossini)"
     WilliamTell = 9,
     //% block="Greensleeves (traditional)"
-    Greensleeves = 11
+    Greensleeves = 11,
+    //% block="Moonlight Sonata 3rd mvt (Beethoven)"
+    Moonlight3 = 40,
+    //% block="Symphony No. 5 (Beethoven)"
+    Symphony5 = 41,
+    //% block="Pathétique Rondo (Beethoven)"
+    Pathetique = 42,
+    //% block="La Campanella (Liszt)"
+    Campanella = 43,
+    //% block="Nocturne Op. 9 No. 2 (Chopin)"
+    Nocturne = 44,
+    //% block="Summer: Presto (Vivaldi)"
+    SummerPresto = 45,
+    //% block="Flight of the Bumblebee (Rimsky-Korsakov)"
+    Bumblebee = 46,
+    //% block="Lacrimosa (Mozart)"
+    Lacrimosa = 47
 }
 
 enum YouthPartySong {
@@ -133,6 +149,14 @@ namespace youthMusic {
             case 8: return "C4:4 D4:2 F4 E4 D4 G4:4 G4 G4:2 A4 E4 F4 D4:4 D4 D4:2 F4 E4 D4 C4 C5 B4 A4 G4 F4 E4 D4 C4:8"
             case 9: return "G4:1 G4 G4:2 G4:1 G4 G4:2 G4:1 G4 C5:2 D5 E5 G4:1 G4 G4:2 G4:1 G4 C5:2 E5 D5 B4 G4:4 G4:1 G4 G4:2 G4:1 G4 G4:2 G4:1 G4 C5:2 D5 E5 C5 E5 G5 C6:8"
             case 11: return "A4:2 C5:4 D5:2 E5:3 F5:1 E5:2 D5:4 B4:2 G4:3 A4:1 B4:2 C5:4 A4:2 A4:3 G#4:1 A4:2 B4:4 G#4:2 E4:4 R:2 A4:2 C5:4 D5:2 E5:3 F5:1 E5:2 D5:4 B4:2 G4:3 A4:1 B4:2 C5:3 B4:1 A4:2 G#4:3 F#4:1 G#4:2 A4:8"
+            case 40: return "G#3:1 C#4 E4 G#4 C#5 E5 G#5 C#6 G#3 C#4 E4 G#4 C#5 E5 G#5 C#6 G#3 B#3 D#4 G#4 B#4 D#5 G#5 B#5 G#3 C#4 E4 G#4 C#5 E5 G#5 C#6 A3 C#4 F#4 A4 C#5 F#5 A5 C#6 A3 D4 F#4 A4 D5 F#5 A5 D6 G#3 B#3 F#4 G#4 B#4 F#5 G#5 B#5 C#6:4 R:4"
+            case 41: return "G4:2 G4 G4 D#4:12 R:4 F4:2 F4 F4 D4:16 R:4 G4:2 G4 G4 D#4:2 G#4 G#4 G#4 G4:2 D#5 D#5 D#5 C5:12"
+            case 42: return "G4:2 C5:6 C5:2 D#5:4 D5:2 C5:4 B4:2 C5:2 D5 D#5 F5 G5:4 G#5:2 G5:4 F5:2 D#5:4 D5:2 C5:8"
+            case 43: return "D#5:2 D#6 D#5 D#6 E5 D#6 D#5 D#6 C#5 D#6 B4 D#6 A#4 D#6 G#4:4 R:2 D#5:2 D#6 D#5 D#6 E5 D#6 F#5 D#6 E5 D#6 D#5 D#6 C#5 D#6 D#5:8"
+            case 44: return "A#4:4 G5:8 F5:2 G5 F5:6 D#5:8 A#4:4 G5:4 C5:2 C6:4 G5:2 A#5:6 G#5:2 G5:6 F5:4 G5 D5:2 D#5:6 C5:2 A#4 D6 C6 A#5 G#5 G5 G#5 C5 D5 D#5:12"
+            case 45: return "G4:1 G4 G4 G4 G4 G4 G4 G4 G5 F5 D#5 D5 C5 A#4 A4 G4 G4 G4 G4 G4 A4 A#4 C5 D5 D#5 F5 G5:4 R:2 G5:1 F5 D#5 D5 C5 A#4 A4 G4 D5 D5 D5 D5 D5 D5 D5 D5 G4:8"
+            case 46: return "E6:1 D#6 D6 C#6 D6 C#6 C6 B5 C6 C#6 D6 C#6 C6 B5 A#5 A5 A#5 A5 G#5 G5 F#5 F5 E5 D#5 E5 D#5 D5 C#5 C5 B4 A#4 A4 A#4 B4 C5 C#5 D5 C#5 C5 B4 C5 C#5 D5 D#5 E5 F5 E5 D#5 E5:4"
+            case 47: return "D5:2 C#5:4 R:2 D5:2 C#5:4 R:2 E5:2 D5:4 R:2 E5:2 D5:4 R:2 F5:2 E5:4 R:2 F5:2 E5:4 G5:6 A5 A#5:12 A5:6 G5 F5:6 E5 D5:12"
             // ---- celebration ----
             case 10: return "C4:4 F4:3 F4:1 F4:8 C4:4 G4:3 E4:1 F4:8 C4:4 F4:3 A#4:1 A#4:4 A4:3 G4:1 F4:4 E4:3 F4:1 G4:8"
             case 13: return "G4:3 G4:1 A4:4 G4 C5 B4:8 G4:3 G4:1 A4:4 G4 D5 C5:8 G4:3 G4:1 G5:4 E5 C5 B4 A4:8 F5:3 F5:1 E5:4 C5 D5 C5:8"

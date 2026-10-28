@@ -40,7 +40,7 @@ Three categories appear: **YOUTH Car**, **YOUTH Kit** and **YOUTH Music**.
 
 | Group | Blocks |
 | --- | --- |
-| Songs | play classic [11] · play celebration [9] · play kids song [8] — until done / in background / looping · stop music · music is playing? |
+| Songs | play classic [19] · play celebration [9] · play kids song [8] — until done / in background / looping · stop music · music is playing? |
 | Jingles | play jingle [20 jingles: power on/off, intro, level up, success, try again, goal!, victory, game over, coin, notification, doorbell, shop chime, countdown, class start/end, cartoon chase, cartoon tiptoe, magic sparkle, surprise!] |
 | Sound Effects | play sound effect [ambulance, police, fire alarm, car horn, reverse beep, laser, rocket, robot talk, heartbeat, engine, bounce, falling] · glide from Hz to Hz · beep N times |
 | My Melody | play notes "C4:4 D E F G:8" · play melody (melody editor) |
@@ -49,7 +49,7 @@ Three categories appear: **YOUTH Car**, **YOUTH Kit** and **YOUTH Music**.
 
 Songs are public-domain compositions or traditional tunes, arranged as one-voice melodies:
 
-- **Classic** — Für Elise, Ode to Joy, Canon in D, Minuet in G, Turkish March, Brahms Lullaby, Morning Mood, In the Hall of the Mountain King, Can-Can, William Tell, Greensleeves
+- **Classic** — Für Elise, Ode to Joy, Canon in D, Minuet in G, Turkish March, Brahms Lullaby, Morning Mood, In the Hall of the Mountain King, Can-Can, William Tell, Greensleeves, Moonlight Sonata (3rd mvt), Symphony No. 5, Pathétique Rondo, La Campanella, Nocturne Op. 9 No. 2, Summer: Presto, Flight of the Bumblebee, Lacrimosa
 - **Celebration** — Happy Birthday, Jingle Bells, We Wish You a Merry Christmas, Silent Night, Deck the Halls, Joy to the World, Auld Lang Syne, Bridal Chorus, Westminster school bell
 - **Kids** — Twinkle Twinkle, Old MacDonald, Row Row Row Your Boat, Mary Had a Little Lamb, London Bridge, Brother John, Itsy Bitsy Spider, Baa Baa Black Sheep
 
