@@ -96,11 +96,11 @@ namespace youthCar {
 
     // calibration (Trainer can change with the Setup blocks)
     let distanceFactor = 1.0
-    let turn90Ms = 400
+    let turn90Ms = 100   // estimate for the YOUTH Yahboom car — re-measure with calibrate 90° turn
     let turnSpeed = 50
     let lineThreshold = 500
     let avoidThreshold = 800
-    let cmPerSecAt50 = 20
+    let cmPerSecAt50 = 81   // measured on the YOUTH Yahboom car (1 sec at 50 % ≈ 81 cm)
     let darkLevel = 30
 
     // ---------- low level ----------
@@ -284,7 +284,9 @@ namespace youthCar {
     //% group="Lights" weight=80
     export function turnSignal(side: YouthSide, times: number): void {
         for (let i = 0; i < times; i++) {
-            basic.showArrow(side == YouthSide.Left ? ArrowNames.West : ArrowNames.East, 0)
+            // micro:bit is mounted upright with the screen facing forward, so the
+            // arrow is mirrored for people in front: Left car side = East on the screen
+            basic.showArrow(side == YouthSide.Left ? ArrowNames.East : ArrowNames.West, 0)
             headlight(YouthColor.Orange)
             basic.pause(300)
             basic.clearScreen()
@@ -645,7 +647,7 @@ namespace youthCar {
      * How long (ms) a 90° turn takes at the given speed on your floor.
      */
     //% blockId=youth_cal_turn block="calibrate 90° turn = %ms ms at %speed \\%"
-    //% ms.defl=400 speed.defl=50 speed.min=10 speed.max=100
+    //% ms.defl=100 speed.defl=50 speed.min=10 speed.max=100
     //% group="Setup" weight=95 advanced=true
     export function calibrateTurn(ms: number, speed: number): void {
         turn90Ms = ms
@@ -669,7 +671,7 @@ namespace youthCar {
      * Measure how many cm the robot drives in 1 second at 50 %, then enter it here.
      */
     //% blockId=youth_cal_drive block="calibrate drive: 1 sec at 50 \\% = %cm cm"
-    //% cm.defl=20
+    //% cm.defl=81
     //% group="Setup" weight=92 advanced=true
     export function calibrateDrive(cm: number): void {
         cmPerSecAt50 = Math.max(1, cm)
