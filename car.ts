@@ -379,6 +379,75 @@ namespace youthCar {
         }
     }
 
+    // ---------- Traffic Rules: distinct gap + cross-line marker ----------
+    // A broad black line ALONE is not a stop marker: the car must first see
+    // a deliberate WHITE GAP in the track, then BOTH sensors see black.
+    // Poll this block continuously in a forever loop while driving.
+    let stopMarkerState = 0 // 0=looking for gap, 1=gap seen, 2=cooldown
+    let stopMarkerGapSince = 0
+    let stopMarkerGapEnd = 0
+    let stopMarkerCooldownUntil = 0
+
+    /**
+     * Recognise a stop marker made of a white gap followed by a wide black
+     * cross-bar. This returns true ONCE per marker; plain wide black lines
+     * never trigger on their own. Keep calling it in forever.
+     */
+    //% blockId=youth_stop_marker block="stop marker detected?"
+    //% group="Sensors" weight=84
+    export function stopMarkerDetected(): boolean {
+        let now = control.millis()
+        let leftBlack = lineSees(YouthSide.Left, YouthLineColor.Black)
+        let rightBlack = lineSees(YouthSide.Right, YouthLineColor.Black)
+        let bothBlack = leftBlack && rightBlack
+        let bothWhite = !leftBlack && !rightBlack
+
+        if (stopMarkerState == 2) {
+            if (now >= stopMarkerCooldownUntil && !bothBlack) {
+                stopMarkerState = 0
+                stopMarkerGapSince = 0
+            }
+            return false
+        }
+
+        if (stopMarkerState == 1) {
+            // No marker within this time window: ignore the stray gap.
+            if (now - stopMarkerGapEnd > 1800) {
+                stopMarkerState = 0
+                stopMarkerGapSince = 0
+                return false
+            }
+            if (bothBlack) {
+                stopMarkerState = 2
+                stopMarkerCooldownUntil = now + 1500
+                stopMarkerGapSince = 0
+                return true
+            }
+            return false
+        }
+
+        if (bothWhite) {
+            if (stopMarkerGapSince == 0) stopMarkerGapSince = now
+            if (now - stopMarkerGapSince >= 100) {
+                stopMarkerState = 1
+                stopMarkerGapEnd = now
+            }
+        } else {
+            stopMarkerGapSince = 0
+        }
+        return false
+    }
+
+    /** Reset traffic marker detection when beginning a new test run. */
+    //% blockId=youth_reset_stop_marker block="reset stop marker detector"
+    //% group="Setup" weight=40
+    export function resetStopMarker(): void {
+        stopMarkerState = 0
+        stopMarkerGapSince = 0
+        stopMarkerGapEnd = 0
+        stopMarkerCooldownUntil = 0
+    }
+
     //% blockId=youth_is_dark block="it is dark?"
     //% group="Sensors" weight=80
     export function isDark(): boolean {

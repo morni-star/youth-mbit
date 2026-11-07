@@ -1,7 +1,7 @@
 {
     "name": "youth-mbit",
-    "version": "1.2.1",
-    "description": "YOUTH mBit \u2014 full block pack for the Yahboom m:bit Smart Robot Car, plug-in modules and music (YOUTH Computer Tachileik)",
+    "version": "1.2.2",
+    "description": "YOUTH mBit — includes beginner-friendly white-gap stop marker detection",
     "license": "MIT",
     "dependencies": {
         "core": "*",
