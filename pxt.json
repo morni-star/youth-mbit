@@ -1,7 +1,7 @@
 {
     "name": "youth-mbit",
-    "version": "1.2.2",
-    "description": "YOUTH mBit — includes beginner-friendly white-gap stop marker detection",
+    "version": "1.2.3",
+    "description": "YOUTH mBit \u2014 Level 7 one-block emergency car (lights and siren), plus Level 8 marker detection",
     "license": "MIT",
     "dependencies": {
         "core": "*",

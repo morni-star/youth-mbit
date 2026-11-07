@@ -652,6 +652,54 @@ namespace youthCar {
         lightsOff()
     }
 
+    // ---------- One-block emergency vehicle (Level 7) ----------
+    // Each start/stop changes the token, so previous blinking/siren fibres exit.
+    let emergencyCarActive = false
+    let emergencyCarToken = 0
+
+    /**
+     * Start continuously blinking red/blue emergency lights AND alternating siren
+     * tones. Returns immediately, so radio and buttons keep working.
+     * Press once to start; use "stop emergency car" to finish.
+     */
+    //% blockId=youth_emergency_car block="emergency car"
+    //% group="Lights" weight=68
+    export function emergencyCar(): void {
+        if (emergencyCarActive) return
+        emergencyCarActive = true
+        emergencyCarToken++
+        let token = emergencyCarToken
+
+        // Lights and music run independently, without blocking the caller.
+        control.inBackground(function () {
+            let red = true
+            while (emergencyCarActive && token == emergencyCarToken) {
+                headlight(red ? YouthColor.Red : YouthColor.Blue)
+                underglow(red ? YouthColor.Blue : YouthColor.Red)
+                red = !red
+                basic.pause(200)
+            }
+        })
+        control.inBackground(function () {
+            while (emergencyCarActive && token == emergencyCarToken) {
+                music.playTone(880, 250)
+                if (emergencyCarActive && token == emergencyCarToken) {
+                    music.playTone(659, 250)
+                }
+            }
+        })
+    }
+
+    /** Stop the emergency lights and siren started by "emergency car". */
+    //% blockId=youth_stop_emergency_car block="stop emergency car"
+    //% group="Lights" weight=67
+    export function stopEmergencyCar(): void {
+        emergencyCarActive = false
+        emergencyCarToken++
+        music.stopAllSounds()
+        lightsOff()
+    }
+
     // ---------- More Events ----------
     let obstacleHandler: () => void = null
     let darkHandler: () => void = null
